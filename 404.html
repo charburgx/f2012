@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+</head>
+<body>
+    <script>
+        var path = window.location.pathname;
+        var pathArr = path.split('/');
+
+        function main() {
+            if(pathArr.length <= 0) return;
+
+            var root = pathArr[0].toLowerCase();
+
+            // numbers are years, for blog pages
+            if(!isNaN(root) || root.localeCompare("diffeq")) {
+                window.location.replace("https://blog.f2012.co" + path);
+            } else {
+                window.location.replace("https://www.f2012.co");
+            }
+        }
+
+        main();
+    </script>
+</body>
+</html>
