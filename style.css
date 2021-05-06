@@ -1,10 +1,12 @@
 :root {
     --main-bg-color: #1d1f21;
+    --main-content-opacity: 0.3;
     --text-100: #666;
     --text-200: #d3d16c;
     --text-300: #e4e4e4;
     --text-href: #d480aa;
-    --lines: #a7a7a7;
+    --lines: #34393a;
+    --lines-100: #4a5250;
     --font-size: 14px;
     --header1-size: 1.5em;
 }
@@ -43,11 +45,17 @@ body {
     color:var(--text-300);
     position: relative;
     max-width: 600px;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, var(--main-content-opacity));
     margin: auto;
     margin-top: 100px;
     padding: 10px;
 }
+
+@media only screen and (max-width: 625px) {
+    .main-content {
+        margin-top: 0px;
+    }
+  }
 
 span.title, span.text {
     width: 100%;
