@@ -11,6 +11,7 @@
     --text-200: #d3d16c;
     --text-300: #e4e4e4;
     --text-href: #d480aa;
+    --text-href-bg: rgb(212, 128, 170, 0.5);
     --lines: #34393a;
     --lines-100: #4a5250;
     --font-size: 14px;
@@ -24,6 +25,13 @@ body {
     font-weight: 400;
     font-size: var(--font-size);
     text-rendering: geometricPrecision;
+}
+
+::selection {
+    background: var(--text-href-bg); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+    background: var(--text-href-bg); /* Gecko Browsers */
 }
 
 @keyframes line-parallax {
@@ -45,6 +53,10 @@ body {
     animation-duration:50s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+.line.t1 {
+    stroke: var(--lines-100);
 }
 
 .main-content {

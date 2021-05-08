@@ -29,6 +29,12 @@ function randStart(n, s) {
     return (n + (Math.random() * 2 * s) - s).toFixed(2);
 }
 
+// More logical modulo operator
+//  see https://web.archive.org/web/20090717035140if_/javascript.about.com/od/problemsolving/a/modulobug.htm
+function mod(n, m) {
+    return ((n % m) + m) % m;
+}
+
 // Set coordiantes of line
 function setLinePos(line, arr) {
     if(arr.length != 4) return;
@@ -39,10 +45,10 @@ function setLinePos(line, arr) {
 }
 
 // Create line and add to DOM
-function line(pos = null) {
+function line(pos = null, i = 0) {
     let line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("class", "line");
-    //line.setAttribute("style", "animation-delay:-" + randStart(10) + "s;")
+    line.setAttribute("class", "line " + "t" + i);
+    //line.setAttribute("style", "anim ation-delay:-" + randStart(10) + "s;")
     //line.setAttribute("style", "animation-duration:" + randStart(ANIM_TIME, 30) + "s;");
 
     if(pos) setLinePos(line, pos);
@@ -84,14 +90,15 @@ function populateLines() {
         x = 0;
         y = i * GAP_PX;
         
-        lines1.push(line([x, y, x+w, y+w]));
+        console.log(i % 2);
+        lines1.push(line([x, y, x+w, y+w], mod(i, 2)));
     })
 
     range(0, hwf).forEach(j => {
         x = j * GAP_PX;
         y = 0;
 
-        lines2.push(line([x, y, x-h, y+h]));
+        lines2.push(line([x, y, x-h, y+h], mod(j, 2)));
     })
 }
 
