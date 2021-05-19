@@ -7,6 +7,10 @@ const ANIM_TIME = 50;
 
 const svg = document.getElementById("lines-bg");
 
+/**
+ * lines1 = lines drawn from left side of screen
+ * lines2 = lines drawn from top side of screen
+ */
 let lines1 = [ ]
 let lines2 = [ ]
 
@@ -48,8 +52,10 @@ function setLinePos(line, arr) {
 function line(pos = null, i = 0) {
     let line = document.createElementNS("http://www.w3.org/2000/svg", "line");
     line.setAttribute("class", "line " + "t" + i);
-    //line.setAttribute("style", "anim ation-delay:-" + randStart(10) + "s;")
-    //line.setAttribute("style", "animation-duration:" + randStart(ANIM_TIME, 30) + "s;");
+
+    // Random variance
+    //  line.setAttribute("style", "anim ation-delay:-" + randStart(10) + "s;")
+    //  line.setAttribute("style", "animation-duration:" + randStart(ANIM_TIME, 30) + "s;");
 
     if(pos) setLinePos(line, pos);
 
